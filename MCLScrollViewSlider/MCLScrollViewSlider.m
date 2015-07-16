@@ -270,7 +270,9 @@ NSString * const cellIdentifier = @"cellIdentifier";
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.callbackBlock) self.callbackBlock(indexPath.item % self.images.count);
+    if (self.callbackBlock) {
+        self.callbackBlock(indexPath.item % self.images.count);
+    }
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -290,7 +292,7 @@ NSString * const cellIdentifier = @"cellIdentifier";
     [self setupTimer];
 }
 
-#pragma mark - 接受block
+#pragma mark - set block
 - (void)didSelectItemWithBlock:(MCLClickedCallbackBlock)block {
     self.callbackBlock = block;
 }
